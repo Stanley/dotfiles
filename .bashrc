@@ -78,7 +78,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -98,7 +98,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=$PATH:/$HOME/.bin:/home/newbuntu/.rvm/gems/ruby-1.9.1-p378/bin
+export PATH=$PATH:$HOME/.bin
 alias spec="spec --color --format specdoc"
 
 # RVM

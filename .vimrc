@@ -1,6 +1,9 @@
-syntax on
-colorscheme molokai
+filetype on                 " Enable filetype detection,
+filetype indent on          " use filetype-specific indenting where available,
+filetype plugin on          " also allow for filetype-specific plugins,
+syntax on                   " and turn on per-filetype syntax highlighting.
 
+set nocompatible
 set t_Co=256
 set ts=2 sts=2 sw=2 expandtab
 set cursorline
@@ -11,6 +14,8 @@ set splitbelow splitright
 set incsearch                     " Highlight matches as you type.
 set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+colorscheme molokai
 
 " learning good practises
 nnoremap <up> <nop>
@@ -32,6 +37,12 @@ inoremap <home> <nop>
 inoremap <Delete> <nop>
 inoremap <PageUp> <nop>
 inoremap <PageDown> <nop>
+
+" allow moving with j/k in insert mode
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+inoremap <c-h> <Left>
+inoremap <c-l> <Right>
 
 " wrapped lines intuitive navigation
 nnoremap j gj
