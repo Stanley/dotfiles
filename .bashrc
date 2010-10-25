@@ -105,6 +105,7 @@ alias spec="spec --color --format specdoc"
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
 export PS1="\w\$ "
+export EDITOR="vim"
 
 source ~/.git-completion.bash
 function prompt
@@ -117,3 +118,6 @@ local BLUE="\[\033[0;34m\]"
 export PS1="\w${GREEN}\$(__git_ps1 ":%s")${GRAY}> "
 }
 prompt
+
+# w00t! Getting into the vi editing mode type
+set -o vi
