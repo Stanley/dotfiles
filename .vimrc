@@ -1,3 +1,5 @@
+call pathogen#runtime_append_all_bundles() 
+
 filetype on                 " Enable filetype detection,
 filetype indent on          " use filetype-specific indenting where available,
 filetype plugin on          " also allow for filetype-specific plugins,
