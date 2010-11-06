@@ -56,6 +56,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" NERDtree
+nmap <C-e> :NERDTreeToggle<CR>
+
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
