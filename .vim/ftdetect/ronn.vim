@@ -1,2 +1,2 @@
-au BufRead,BufNewFile *.ronn		set filetype=markdown
+au BufRead,BufNewFile *.ronn		set filetype=mkd
 
