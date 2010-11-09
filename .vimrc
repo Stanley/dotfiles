@@ -13,9 +13,14 @@ set relativenumber
 set encoding=utf-8
 set scrolloff=3
 set splitbelow splitright
+set hlsearch
 set incsearch                     " Highlight matches as you type.
 set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set hidden                        " Allow Vim to manage multiple buffers effectively
+set wildmenu                      " The following configuration lets you see what your completion options are
+set backupdir=~/tmp,/var/tmp,/tmp
+set directory=~/tmp,/var/tmp,/tmp
 
 colorscheme molokai
 
@@ -40,6 +45,10 @@ inoremap <Delete> <nop>
 inoremap <PageUp> <nop>
 inoremap <PageDown> <nop>
 
+" speed up scrolling viewport
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
 " allow moving with j/k in insert mode
 inoremap <c-j> <Down>
 inoremap <c-k> <Up>
@@ -51,13 +60,13 @@ nnoremap j gj
 nnoremap k gk
 
 " Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
-" NERDtree
-nmap <C-e> :NERDTreeToggle<CR>
+" Easy tab navigation
+nmap <C-t> :tabnew<cr><c-e>
 
 " Bubble single lines
 nmap <C-Up> [e
@@ -65,3 +74,6 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+
+" @jonbho: Somebody posted at the ViEmu forum the most incredible vim mapping there is!
+" nnoremap <esc> :noh<return><esc>
