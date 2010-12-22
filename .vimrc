@@ -15,6 +15,8 @@ set scrolloff=3
 set splitbelow splitright
 set hlsearch
 set incsearch                     " Highlight matches as you type.
+set ignorecase                    " do case-insensitive searching 
+set smartcase                     " When a search phrase has uppercase, don't be case insensitive
 set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set hidden                        " Allow Vim to manage multiple buffers effectively
