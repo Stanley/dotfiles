@@ -22,3 +22,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
+
+# Using vi keys I want to know what mode I'm currently using.
+function zle-line-init zle-keymap-select {
+  RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/$TIME}"
+  RPS2=$RPS1
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
