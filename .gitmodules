@@ -28,3 +28,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule ".vim/bundle/latex"]
+	path = .vim/bundle/latex
+	url = https://github.com/nuclearsandwich/vim-latex.git
