@@ -20,6 +20,8 @@ plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
+setopt MENU_COMPLETE # immediatelly insert first match
+
 # Customize to your needs...
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
