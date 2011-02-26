@@ -26,6 +26,12 @@ set directory=~/tmp,/var/tmp,/tmp
 
 colorscheme molokai
 
+" Source the vimrc file after saving it
+" Thanks to: http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 " learning good practises
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -76,6 +82,10 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+ 
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F5> :GundoToggle<CR>
+nnoremap <F12> :Gstatus<CR>
 
 " @jonbho: Somebody posted at the ViEmu forum the most incredible vim mapping there is!
 " nnoremap <esc> :noh<return><esc>
