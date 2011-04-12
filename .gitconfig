@@ -4,5 +4,9 @@
 
 [core]
   editor = vim
+  
 [github]
 	user = stanley
+
+[url "https://github.com/"]
+    insteadOf = "gh:"
