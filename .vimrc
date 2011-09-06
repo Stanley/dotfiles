@@ -74,17 +74,23 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Easy tab navigation
-nmap <C-t> :tabnew<cr><c-e>
+" nnoremap <C-t> :tabnew<cr><c-e>
+nnoremap <C-Right> gt
+nnoremap <C-Left> gT
 
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
+" Easy ctags navigation
+noremap <C-Down> :tn<CR>
+noremap <C-Up> :tp<CR>
+
+" Bubble selected lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
  
 nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F3> :BufExplorerHorizontalSplit<CR>
+nnoremap <F4> :TlistToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
+
 nnoremap <F12> :Gstatus<CR>
 
 " @jonbho: Somebody posted at the ViEmu forum the most incredible vim mapping there is!
