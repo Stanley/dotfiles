@@ -97,5 +97,8 @@ nnoremap <F5> :GundoToggle<CR>
 
 nnoremap <F12> :Gstatus<CR>
 
+" select the last changed text (or the text that was just pasted)
+nnoremap gp `[v`]
+
 " @jonbho: Somebody posted at the ViEmu forum the most incredible vim mapping there is!
 " nnoremap <esc> :noh<return><esc>
