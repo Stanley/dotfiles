@@ -24,6 +24,8 @@ set wildmenu                      " The following configuration lets you see wha
 set backupdir=~/tmp,/var/tmp,/tmp
 set directory=~/tmp,/var/tmp,/tmp
 
+set list listchars=tab:→\ ,trail:·
+
 "let g:Powerline_symbols = 'fancy'
 
 colorscheme molokai
