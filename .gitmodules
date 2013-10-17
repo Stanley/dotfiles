@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/jshint"]
 	path = .vim/bundle/jshint
 	url = https://github.com/walm/jshint.vim.git
+[submodule ".vim/bundle/easymotion"]
+	path = .vim/bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
