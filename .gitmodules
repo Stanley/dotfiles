@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/easymotion"]
 	path = .vim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule ".vim/bundle/mustache"]
+	path = .vim/bundle/mustache
+	url = git://github.com/mustache/vim-mustache-handlebars.git
