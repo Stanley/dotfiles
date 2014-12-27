@@ -56,3 +56,11 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+# The next line updates PATH for the Google Cloud SDK.
+source "${HOME}/google-cloud-sdk/path.zsh.inc"
+
+# The next lines enables bash completion in Zsh for gcloud. 
+autoload -U compinit compdef
+compinit
+source "${HOME}/google-cloud-sdk/completion.zsh.inc"
