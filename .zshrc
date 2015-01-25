@@ -64,3 +64,7 @@ source "${HOME}/google-cloud-sdk/path.zsh.inc"
 autoload -U compinit compdef
 compinit
 source "${HOME}/google-cloud-sdk/completion.zsh.inc"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+export JRUBY_OPTS=--2.0
+eval "$(rbenv init -)"
