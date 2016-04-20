@@ -61,21 +61,15 @@ inoremap <PageDown> <nop>
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-" allow moving with j/k in insert mode
-inoremap <c-j> <Down>
-inoremap <c-k> <Up>
-inoremap <c-h> <Left>
-inoremap <c-l> <Right>
-
 " wrapped lines intuitive navigation
 nnoremap j gj
 nnoremap k gk
 
 " Easy window navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Easy tab navigation
 " nnoremap <C-t> :tabnew<cr><c-e>
@@ -95,7 +89,11 @@ nnoremap <F3> :BufExplorerHorizontalSplit<CR>
 nnoremap <F4> :TlistToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 
+nnoremap <F11> :Gblame<CR>
 nnoremap <F12> :Gstatus<CR>
+
+map <F6> <Plug>GithubOpen
+map <F7> <Plug>GithubComment
 
 " select the last changed text (or the text that was just pasted)
 nnoremap gp `[v`]
