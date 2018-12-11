@@ -20,6 +20,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+export NPM_PACKAGES=$HOME/.npm-packages
+export PATH=$NPM_PACKAGES/bin:$PATH
+
 # Use `hub` as our git wrapper:
 #   http://defunkt.github.com/hub/
 hub_path=$(which hub)
