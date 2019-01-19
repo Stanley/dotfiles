@@ -24,10 +24,10 @@ set hidden                        " Allow Vim to manage multiple buffers effecti
 set wildmenu                      " The following configuration lets you see what your completion options are
 set backupdir=~/tmp,/var/tmp,/tmp
 set directory=~/tmp,/var/tmp,/tmp
-
-set list listchars=tab:→\ ,trail:·
 set wildignore+=*/node_modules/*  " Don't search inside Node.js modules
 set wildignore+=*/build/*         " Don't search inside /build
+
+set list listchars=tab:→\ ,trail:·
 
 "let g:Powerline_symbols = 'fancy'
 let g:lightline = {
