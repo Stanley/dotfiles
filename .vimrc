@@ -9,7 +9,8 @@ set nocompatible
 set t_Co=256
 set ts=2 sts=2 sw=2 expandtab
 set cursorline
-set relativenumber
+set number relativenumber         " Relative line numbers
+set nu rnu                        " Curren line absolute number
 set encoding=utf-8
 set scrolloff=3
 set splitbelow splitright
@@ -25,10 +26,13 @@ set backupdir=~/tmp,/var/tmp,/tmp
 set directory=~/tmp,/var/tmp,/tmp
 
 set list listchars=tab:→\ ,trail:·
+set wildignore+=*/node_modules/*  " Don't search inside Node.js modules
+set wildignore+=*/build/*         " Don't search inside /build
 
 "let g:Powerline_symbols = 'fancy'
-
-colorscheme molokai
+let g:lightline = {
+\ 'colorscheme': 'snazzy',
+\ }
 
 " Source the vimrc file after saving it
 " Thanks to: http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/
@@ -100,3 +104,12 @@ nnoremap gp `[v`]
 
 " @jonbho: Somebody posted at the ViEmu forum the most incredible vim mapping there is!
 " nnoremap <esc> :noh<return><esc>
+
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'connorholyday/vim-snazzy'  " color scheme
+Plug 'itchyny/lightline.vim'     " bottom line
+
+call plug#end()
+
+colorscheme snazzy

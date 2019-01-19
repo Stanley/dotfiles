@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="../../zsh-themes/minimalistic"
+export ZSH_THEME=""
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -19,6 +19,13 @@ export ZSH_THEME="../../zsh-themes/minimalistic"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
+# Pure theme
+autoload -U promptinit; promptinit
+prompt pure
+
+export NPM_PACKAGES=$HOME/.npm-packages
+export PATH=$NPM_PACKAGES/bin:$PATH
 
 # Use `hub` as our git wrapper:
 #   http://defunkt.github.com/hub/
@@ -58,13 +65,17 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 # The next line updates PATH for the Google Cloud SDK.
-source "${HOME}/google-cloud-sdk/path.zsh.inc"
+#source "${HOME}/google-cloud-sdk/path.zsh.inc"
 
 # The next lines enables bash completion in Zsh for gcloud. 
 autoload -U compinit compdef
 compinit
-source "${HOME}/google-cloud-sdk/completion.zsh.inc"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-export JRUBY_OPTS=--2.0
-eval "$(rbenv init -)"
+#source "${HOME}/google-cloud-sdk/completion.zsh.inc"
+
+alias cagol='source /usr/local/bin/cago.sh list'
+alias cagor='source /usr/local/bin/cago.sh refresh'
+alias cagos='source /usr/local/bin/cago.sh switch'
+alias cagou='source /usr/local/bin/cago.sh unset'
+
+alias v='nvim'
