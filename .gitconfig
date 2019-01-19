@@ -3,7 +3,7 @@
 	email = staszek.wasiutynski@gmail.com
 
 [core]
-  editor = vim
+  editor = nvim
   
 [github]
 	user = stanley
