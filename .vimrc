@@ -104,12 +104,3 @@ nnoremap gp `[v`]
 
 " @jonbho: Somebody posted at the ViEmu forum the most incredible vim mapping there is!
 " nnoremap <esc> :noh<return><esc>
-
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'connorholyday/vim-snazzy'  " color scheme
-Plug 'itchyny/lightline.vim'     " bottom line
-
-call plug#end()
-
-colorscheme snazzy

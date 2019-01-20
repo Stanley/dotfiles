@@ -3,7 +3,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'kylef/apiblueprint.vim'
-Plug 'morhetz/gruvbox'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-airline/vim-airline'
 Plug 'majutsushi/tagbar'
@@ -15,9 +14,14 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'neomake/neomake'
+Plug 'connorholyday/vim-snazzy'  " color scheme
+Plug 'itchyny/lightline.vim'     " bottom line
+Plug 'sjl/gundo.vim'             " undo
 
 " Initialize plugin system
 call plug#end()
+
+colorscheme snazzy
 
 call neomake#configure#automake('w')
 
@@ -33,13 +37,13 @@ set smartcase                     " When a search phrase has uppercase, don't be
 set laststatus=2                  " Show the status line all the time
 set list listchars=tab:→\ ,trail:·
 
-set wildignore+=node_modules
+set wildignore+=*/node_modules/*  " Don't search inside Node.js modules
+set wildignore+=*/build/*         " Don't search inside /build
 
-colorscheme gruvbox
+let g:lightline = {
+\ 'colorscheme': 'snazzy',
+\ }
 
-let g:gruvbox_contrast_dark = "hard"
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Set up Neomake
@@ -71,3 +75,6 @@ nnoremap gp `[v`]
 nnoremap <esc> :noh<return><esc>
 
 nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F5> :GundoToggle<CR>
+nnoremap <F11> :Gblame<CR>
+nnoremap <F12> :Gstatus<CR>
