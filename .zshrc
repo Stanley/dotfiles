@@ -27,6 +27,9 @@ prompt pure
 export NPM_PACKAGES=$HOME/.npm-packages
 export PATH=$NPM_PACKAGES/bin:$PATH
 
+# deno
+export PATH=$HOME/.deno/bin:$PATH
+
 # Use `hub` as our git wrapper:
 #   http://defunkt.github.com/hub/
 hub_path=$(which hub)
