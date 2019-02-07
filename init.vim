@@ -4,7 +4,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'kylef/apiblueprint.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'vim-airline/vim-airline'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
@@ -14,9 +13,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'neomake/neomake'
-Plug 'connorholyday/vim-snazzy'  " color scheme
-Plug 'itchyny/lightline.vim'     " bottom line
-Plug 'sjl/gundo.vim'             " undo
+Plug 'connorholyday/vim-snazzy'   " color scheme
+Plug 'itchyny/lightline.vim'      " bottom line
+Plug 'sjl/gundo.vim'              " undo
+Plug 'leafgarland/typescript-vim' " Typescript
 
 " Initialize plugin system
 call plug#end()
@@ -25,7 +25,11 @@ colorscheme snazzy
 
 call neomake#configure#automake('w')
 
-set ts=2 sts=2 sw=2 expandtab
+filetype plugin indent on
+
+set tabstop=2                     " show existing tab with 2 spaces width
+set shiftwidth=2                  " when indenting with '>', use 2 spaces width
+set expandtab                     " On pressing tab, insert 2 spaces
 set cursorline
 set number norelativenumber
 set encoding=utf-8
@@ -39,6 +43,7 @@ set list listchars=tab:→\ ,trail:·
 
 set wildignore+=*/node_modules/*  " Don't search inside Node.js modules
 set wildignore+=*/build/*         " Don't search inside /build
+set wildignore+=*/dist/*          " Don't search inside /dist
 
 let g:lightline = {
 \ 'colorscheme': 'snazzy',
