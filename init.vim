@@ -5,25 +5,29 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'kylef/apiblueprint.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'wincent/command-t'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
-Plug 'neomake/neomake'
 Plug 'connorholyday/vim-snazzy'   " color scheme
 Plug 'itchyny/lightline.vim'      " bottom line
 Plug 'sjl/gundo.vim'              " undo
-Plug 'leafgarland/typescript-vim' " Typescript
+
+" Typescript syntax
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" For async completion
+Plug 'Shougo/deoplete.nvim'
+" For Denite features
+Plug 'Shougo/denite.nvim'
 
 " Initialize plugin system
 call plug#end()
 
 colorscheme snazzy
-
-call neomake#configure#automake('w')
 
 filetype plugin indent on
 
@@ -51,8 +55,6 @@ let g:lightline = {
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-" Set up Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
 
 " speed up scrolling viewport
 nnoremap <C-e> 3<C-e>
