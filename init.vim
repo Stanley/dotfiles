@@ -4,7 +4,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'kylef/apiblueprint.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'vim-airline/vim-airline'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
@@ -17,6 +16,13 @@ Plug 'neomake/neomake'
 Plug 'connorholyday/vim-snazzy'  " color scheme
 Plug 'itchyny/lightline.vim'     " bottom line
 Plug 'sjl/gundo.vim'             " undo
+
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" For async completion
+Plug 'Shougo/deoplete.nvim'
+" For Denite features
+Plug 'Shougo/denite.nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -48,6 +54,8 @@ let g:lightline = {
 let g:NERDSpaceDelims = 1
 " Set up Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
+
+let g:deoplete#enable_at_startup = 1
 
 " speed up scrolling viewport
 nnoremap <C-e> 3<C-e>
