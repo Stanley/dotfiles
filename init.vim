@@ -5,17 +5,27 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'kylef/apiblueprint.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'wincent/command-t'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
-Plug 'neomake/neomake'
-Plug 'connorholyday/vim-snazzy'  " color scheme
-Plug 'itchyny/lightline.vim'     " bottom line
-Plug 'sjl/gundo.vim'             " undo
+Plug 'connorholyday/vim-snazzy'   " color scheme
+Plug 'itchyny/lightline.vim'      " bottom line
+Plug 'sjl/gundo.vim'              " undo
+
+" Fuzzy search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
+
+" Typescript syntax
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" For async completion
+Plug 'Shougo/deoplete.nvim'
+" For Denite features
+Plug 'Shougo/denite.nvim'
 
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
@@ -29,9 +39,11 @@ call plug#end()
 
 colorscheme snazzy
 
-call neomake#configure#automake('w')
+filetype plugin indent on
 
-set ts=2 sts=2 sw=2 expandtab
+set tabstop=2                     " show existing tab with 2 spaces width
+set shiftwidth=2                  " when indenting with '>', use 2 spaces width
+set expandtab                     " On pressing tab, insert 2 spaces
 set cursorline
 set number norelativenumber
 set encoding=utf-8
@@ -45,6 +57,7 @@ set list listchars=tab:→\ ,trail:·
 
 set wildignore+=*/node_modules/*  " Don't search inside Node.js modules
 set wildignore+=*/build/*         " Don't search inside /build
+set wildignore+=*/dist/*          " Don't search inside /dist
 
 let g:lightline = {
 \ 'colorscheme': 'snazzy',
@@ -52,8 +65,9 @@ let g:lightline = {
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-" Set up Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
+
+" Show fzf in popup window
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Comment' } }
 
 let g:deoplete#enable_at_startup = 1
 
@@ -86,3 +100,6 @@ nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <F11> :Gblame<CR>
 nnoremap <F12> :Gstatus<CR>
+
+" Disable search for file name in addition to the phrase
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
