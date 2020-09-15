@@ -16,7 +16,7 @@ export ZSH_THEME=""
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gitfast)
+plugins=(git gitfast)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -29,6 +29,9 @@ export PATH=$NPM_PACKAGES/bin:$PATH
 
 # deno
 export PATH=$HOME/.deno/bin:$PATH
+#
+# Use brew installed ruby as system ruby version
+export PATH="/usr/local/opt/ruby/bin/:$PATH"
 
 # Use `hub` as our git wrapper:
 #   http://defunkt.github.com/hub/
@@ -82,3 +85,5 @@ alias cagos='source /usr/local/bin/cago.sh switch'
 alias cagou='source /usr/local/bin/cago.sh unset'
 
 alias v='nvim'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

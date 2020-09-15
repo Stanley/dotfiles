@@ -5,9 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'kylef/apiblueprint.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'wincent/command-t'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -15,6 +13,11 @@ Plug 'tpope/vim-repeat'
 Plug 'connorholyday/vim-snazzy'   " color scheme
 Plug 'itchyny/lightline.vim'      " bottom line
 Plug 'sjl/gundo.vim'              " undo
+
+" Fuzzy search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 
 " Typescript syntax
 Plug 'HerringtonDarkholme/yats.vim'
@@ -56,6 +59,9 @@ let g:lightline = {
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
+" Show fzf in popup window
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Comment' } }
+
 " speed up scrolling viewport
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -85,3 +91,6 @@ nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <F11> :Gblame<CR>
 nnoremap <F12> :Gstatus<CR>
+
+" Disable search for file name in addition to the phrase
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
