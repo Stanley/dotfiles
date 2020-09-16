@@ -10,3 +10,8 @@
 
 [url "https://github.com/"]
     insteadOf = "gh:"
+[push]
+	default = simple
+
+[alias]
+  fza = "!git ls-files -m -o --exclude-standard | fzf --print0 -m | xargs -0 -t -o git add"
