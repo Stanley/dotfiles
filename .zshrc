@@ -33,6 +33,9 @@ export PATH=$HOME/.deno/bin:$PATH
 # Use brew installed ruby as system ruby version
 export PATH="/usr/local/opt/ruby/bin/:$PATH"
 
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
+
 # Use `hub` as our git wrapper:
 #   http://defunkt.github.com/hub/
 hub_path=$(which hub)
@@ -86,4 +89,13 @@ alias cagou='source /usr/local/bin/cago.sh unset'
 
 alias v='nvim'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/completion.zsh && source /usr/share/fzf/key-bindings.zsh
+
+# When selecting files with fzf, we show file content with syntax highlighting,
+# or without highlighting if it's not a source file. If the file is a directory,
+# we use tree to show the directory's contents.
+# We only load the first 200 lines of the file which enables fast previews
+# of large text files.
+# Requires highlight and tree: pacman -S highlight tree
+export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null ||
+cat {} || tree -C {}) 2> /dev/null | head -200'"
