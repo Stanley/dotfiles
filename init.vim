@@ -93,5 +93,16 @@ nnoremap <F5> :GundoToggle<CR>
 nnoremap <F11> :Gblame<CR>
 nnoremap <F12> :Gstatus<CR>
 
+" Search and switch buffers
+nmap <leader>b :Buffers<cr>
+" Find files by name under the current directory
+nmap <leader>f :Files<cr>
+" Find files by name under the home directory
+nmap <leader>h :Files ~/<cr>
+" Search content in the current file
+nmap <leader>l :BLines<cr>
+" Search content in the current file and in files under the current directory
+nmap <leader>g :Rg<cr>
+
 " Disable search for file name in addition to the phrase
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
