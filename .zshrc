@@ -21,6 +21,7 @@ plugins=(git gitfast)
 source $ZSH/oh-my-zsh.sh
 
 # Pure theme
+fpath+=/opt/homebrew/share/zsh/site-functions # Mac OS M1 workaround
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -89,7 +90,7 @@ alias cagou='source /usr/local/bin/cago.sh unset'
 
 alias v='nvim'
 
-source /usr/share/fzf/completion.zsh && source /usr/share/fzf/key-bindings.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # When selecting files with fzf, we show file content with syntax highlighting,
 # or without highlighting if it's not a source file. If the file is a directory,
@@ -99,3 +100,4 @@ source /usr/share/fzf/completion.zsh && source /usr/share/fzf/key-bindings.zsh
 # Requires highlight and tree: pacman -S highlight tree
 export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null ||
 cat {} || tree -C {}) 2> /dev/null | head -200'"
+
