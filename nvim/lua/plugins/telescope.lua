@@ -4,6 +4,7 @@ return {
 		'nvim-lua/plenary.nvim',
 		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
     "nvim-tree/nvim-web-devicons",
+    "debugloop/telescope-undo.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -22,6 +23,7 @@ return {
 			},
 		})
 
+		telescope.load_extension("undo")
 		-- telescope.load_extension("fzf")
 
 		local builtin = require('telescope.builtin')
@@ -32,6 +34,8 @@ return {
 		vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 		vim.keymap.set('n', '<leader>fu', builtin.current_buffer_fuzzy_find, { desc = 'Telescope current buffer fuzzy find' })
 		vim.keymap.set('n', '<leader>ft', builtin.current_buffer_tags, { desc = 'Telescope current buffer tags' })
+
+    vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>')
 	end
 }
 

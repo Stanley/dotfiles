@@ -10,7 +10,10 @@ local M = {
       configs.setup({
         ensure_installed = { "c", "lua", "vim", "vimdoc", "haskell" },
         sync_install = false,
-        highlight = { enable = true },
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
         indent = { enable = true },  
         incremental_selection = {
           enable = true,
