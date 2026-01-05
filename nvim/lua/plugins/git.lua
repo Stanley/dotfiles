@@ -12,6 +12,7 @@ return {
     },
     keys = {
       { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+      { "<leader>gf", function() require("lazygit").lazygitfilter(vim.fn.expand("%")) end, desc = "LazyGit file history" },
     },
   },
 }
