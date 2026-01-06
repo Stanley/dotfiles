@@ -1,2 +1,13 @@
 .vim/.netrwhist
 .claude/
+
+# Claude Code runtime data
+claude/debug/
+claude/file-history/
+claude/history.jsonl
+claude/plans/
+claude/projects/
+claude/session-env/
+claude/shell-snapshots/
+claude/statsig/
+claude/todos/
